@@ -1,0 +1,81 @@
+CREATE TABLE savingTarget (
+    sv_id SERIAL PRIMARY KEY,
+    sv_name VARCHAR(255) NOT NULL,
+    describe VARCHAR(255) NOT NULL,
+	amount INTEGER,
+	start_date date,
+	end_date  date
+);
+
+CREATE TABLE report (
+    report_id SERIAL PRIMARY KEY,
+    report_name VARCHAR(255) NOT NULL,
+    type  VARCHAR(255) NOT NULL	
+); 
+
+CREATE TABLE user_model (
+    user_id SERIAL PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    email_verified VARCHAR(255) NOT NULL,
+	enabled VARCHAR(255) NOT NULL,
+	first_name VARCHAR(255),
+	last_name VARCHAR(255) ,
+	username VARCHAR(255),
+	report_id INTEGER REFERENCES report(report_id), 
+	sv_id INTEGER REFERENCES savingTarget(sv_id)
+	
+);
+
+
+CREATE TABLE wallet (
+    wallet_id SERIAL PRIMARY KEY,
+    cash INTEGER NOT NULL,
+    creadit INTEGER NOT NULL,
+	total  INTEGER NOT NULL,
+	user_id INTEGER REFERENCES user_model(user_id)
+);
+
+CREATE TABLE currency (
+    currency_id SERIAL PRIMARY KEY,
+    name_currency VARCHAR(255) NOT NULL,
+	wallet_id INTEGER REFERENCES wallet(wallet_id)
+);
+
+CREATE TABLE outcome (
+    outcome_id SERIAL PRIMARY KEY,
+    date_time date NOT NULL
+);
+
+CREATE TABLE income (
+    income_id SERIAL PRIMARY KEY,
+    date_time date NOT NULL
+);
+
+CREATE TABLE card_brand (
+    brand_id SERIAL PRIMARY KEY,
+    name_brand VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE card (
+    card_id SERIAL PRIMARY KEY,
+    amount INTEGER NOT NULL,
+	card_number INTEGER NOT NULL,
+	brand_id  INTEGER REFERENCES card_brand(brand_id) 
+);
+
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name_category VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE transaction (
+    transaction_id SERIAL PRIMARY KEY,
+    amount INTEGER NOT NULL,
+	card_id  INTEGER REFERENCES card(card_id),
+	category_id INTEGER REFERENCES category(category_id),
+	wallet_id INTEGER REFERENCES wallet(wallet_id),
+	outcome_id INTEGER REFERENCES outcome(outcome_id),
+	income_id INTEGER REFERENCES income(income_id)
+);
+
