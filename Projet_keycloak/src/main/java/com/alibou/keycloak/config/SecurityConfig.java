@@ -1,5 +1,6 @@
-package com.alibou.keycloak;
+package com.alibou.keycloak.config;
 
+import com.alibou.keycloak.JwtAuthConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
