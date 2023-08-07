@@ -32,7 +32,7 @@ CREATE TABLE wallet (
     cash double precision NOT NULL,
     creadit double precision NOT NULL,
 	total   double precision NOT NULL,
->>>>>>>>>>>>>>>>>>>>>>	user_id INTEGER REFERENCES user_model(user_id)
+	user_id INTEGER REFERENCES user_model(user_id)
 );
 
 CREATE TABLE currency (
@@ -89,8 +89,14 @@ CREATE TABLE transaction_category (
 
 CREATE TABLE report_user (
    report_id INTEGER REFERENCES report(report_id),
-   user_id INTEGER REFERENCES user_model(user_id),
-    PRIMARY KEY (report_id, user_id)
+   user_model_id INTEGER REFERENCES user_model(user_model_id),
+    PRIMARY KEY (report_id, user_model_id)
+);
+
+CREATE TABLE wallet_user (
+   wallet_id INTEGER REFERENCES wallet(wallet_id),
+   currency_id INTEGER REFERENCES currency(currency_id),
+    PRIMARY KEY (wallet_id, currency_id)
 );
 
 CREATE TABLE wallet_currency (
@@ -98,8 +104,4 @@ CREATE TABLE wallet_currency (
    currency_id INTEGER REFERENCES currency(currency_id),
     PRIMARY KEY (wallet_id, currency_id)
 );
-
-
-
-
 
