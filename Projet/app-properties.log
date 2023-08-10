@@ -198,3 +198,6 @@
 [INFO ] 10-08-2023 14:48:44 [http-nio-8888-exec-2] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 [INFO ] 10-08-2023 14:48:44 [http-nio-8888-exec-2] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 [INFO ] 10-08-2023 14:48:44 [http-nio-8888-exec-2] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 10-08-2023 15:20:22 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 10-08-2023 15:20:22 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 10-08-2023 15:20:22 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
