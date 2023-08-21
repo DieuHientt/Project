@@ -1,7 +1,7 @@
 services:
   keycloak:
-    container_name: keycloak
-    image: quay.io/keycloak/keycloak:21.1.1
+    container_name: project2023TMA
+    image: quay.io/project2023TMA/project2023TMA:21.1.1
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
